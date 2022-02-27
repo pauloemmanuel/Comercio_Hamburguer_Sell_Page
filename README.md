@@ -1,24 +1,5 @@
-# axiosnpm
+## Available Scripts
 
-## Project setup
-```
-npm install
-```
+É possível executar
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Foi usado nesse projeto Redux, Storage e Styled-Components
