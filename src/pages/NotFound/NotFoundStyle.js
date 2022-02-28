@@ -18,10 +18,17 @@ export const Message404__Description = styled.div`
   padding-top:1rem;
 
 `
-export const Message404__Link = styled.a`
-
-color:orange;
-&:hover{
-
-}
+export const Message404__Link = styled.div`
+  display:inline;
+    a{
+      color:orange;
+      &:visited{
+        color:purple;
+      }
+      &:hover{
+        color:rgba(122,213,12);
+      }
+    
+     }
+   
 `
