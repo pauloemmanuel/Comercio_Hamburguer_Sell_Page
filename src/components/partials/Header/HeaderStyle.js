@@ -7,14 +7,11 @@ background-color:#E5E5E5;
 padding: 16px 40px;
 align-items: center;
 position:relative;
-z-index:1;
-
+z-index:2;
 `
-
 export const HeaderBox__Container = styled.div`
-
 flex-align:flex-end;
-z-index:1;
+z-index:2;
 position:relative;
 display:flex;
 margin-left:auto;
@@ -55,6 +52,7 @@ padding: 4px 8px;
 position:relative;
 overflow:visible;
 justify-content:space-between;
+z-index:10;
 span .orangeText{
   color:#D80000;
   font-weight:500;
@@ -72,17 +70,26 @@ ul{
   top:30px;
   left:0;
   width:100%;
+  padding-top:8px;
   background-color:white;
   z-index:10;
+  border-radius:0px 10px 10px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
 }
 li{
   cursor:pointer;
-  margin-left:-30px;
-  padding:2px 0px;
+  margin-left:-31px;
+  padding:8px 0px;
+  position:relative;
+  z-index:10;
+
 }
 li:hover{
-  color:#DDD;
+  color:#AAA;
+  position:relative;
+  z-index:10;
 }
+
 `
 
 export const HeaderBox__SearchInput = styled.div`
@@ -138,3 +145,4 @@ export const Header__Counter = styled.div`
   line-height: 10px;
   
 `
+
