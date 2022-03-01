@@ -1,18 +1,21 @@
 import styled from 'styled-components'
 
-export const HamburgerContainer = styled.div`
+export const HamburgerContainer = styled.main`
 display:flex;
 flex-flow:column nowrap;
 padding:30px;
+position:relative;
+z-index:1;
 padding-top:48px;
 width:50%;
-
 `
 
 export const HamburgerContainer__Image = styled.div`
 width:600px;
+position:relative;
+z-index:1;
 @media(max-width:1200px){
-  margin-left:-48px;
+  margin-left:-68px;
 }
 `
 export const HamburgerContainer__ProductTitle = styled.div`
@@ -47,20 +50,32 @@ export const Options = styled.div`
 display:flex;
 flex-flow:column nowrap;
 margin:auto;
-margin-top:40px;
-margin-right:40px;
+margin-top:24px;
+margin-right:24px;
 width:440px;
 border:1px solid #686868;
 padding:32px;
-height:37rem;
+padding-right:28px;
+font-weight:500;
+height:50rem;
 border-radius: 8px;
+max-height:39rem;
+padding-bottom:0px;
+`
+export const Options__Divider = styled.div`
+display:flex;
+flex-direction:column;
 overflow:auto;
+max-height:31.5rem;
 `
 
 export const Options__Header = styled.div`
-background-color:rgba(253, 215, 14, 0.2);
+background-color: rgba(253, 215, 14, 0.2);
 padding-bottom:10px;
 padding-left:20px;
+margin-bottom:10px;
+
+
 p{
   font-size:14px; 
   color:#4E4E4E;
@@ -73,8 +88,204 @@ span{
 }
 `
 export const Options__Children = styled.div`
-padding:20px;
+padding:24px;
+padding-left:0px;
+margin-right:10px;
+margin-left:10px;
+margin-top:-20px;
+margin-bottom:10px;
+height:105px;
+font-size:14px;
+border-bottom:1px solid #F09035;
+
+&:last-child{
+  border-bottom:0px solid #F09035;
+}
+.orangeText{
+  color:#F09035;
+  font-weight:500;
+  padding-bottom:0px;
+}
+
+label{
+display:flex;    
+padding:0;
+margin:-4px;
+margin-left:10px;
+position:relative;
+font-size:16px;
+line-height:24px;
+font-weight:400;
+justify-content:space-between;
+  span{
+    position:relative;
+    display:inline;
+    cursor:pointer;
+    margin-bottom:-20px;
+  }
+  input {
+    cursor:pointer;
+    margin:0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border: 1px solid orange;
+    transition: 0.2s all linear;
+    position: relative;
+  }
+
+  input:checked {
+    box-shadow: inset 0 0 0 3px white;
+    border-color: orange;
+     background:orange;
+   
+  }
+}
+
+
 `
+export const Options__Children__Counter = styled.div`
+  position:relative;
+  display:block;
+  margin-left:auto;
+  margin-right:-20px;
+  width: 90px;
+.input-number {
+  position: relative;
+ 
+  width: 100%;
+  display:flex;
+  align-itens:center;
+  height: 32px;
+  background-color: white;
+  overflow: hidden;
+  margin: 2px;
+  border-radius:5px;
+  border:1px solid #F09035;
+}
+
+.input-number span {
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+  display: inline-block;
+  background-color: white;
+  height: 100%;
+  width: 40px;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 32px;
+  font-size: 14px;
+  color: #4E4E4E;
+  letter-spacing: -1px;
+}
+.input-number button {
+  display: inline-block;
+  width: 50px;
+  height: 100%;
+  border: none;
+  color: #D80000;
+  cursor:pointer;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: rgba(255,255,255,.2);
+  transition: background-color .2s ease;
+  font-size: 24px;
+  
+}
+}
+
+.input-number button:nth-of-type(1) {
+  padding-right: 20px
+}
+
+.input-number button:nth-of-type(2) {
+  padding-left: 20px;
+}
+
+`
+
+export const Options__Children__Counter__Big = styled.div`
+  position:relative;
+  display:block;
+  width: 140px;
+.input-number {
+  position: relative;
+  width: 100%;
+  display:flex;
+  align-itens:center;
+  height: 40px;
+  background-color: white;
+  overflow: hidden;
+
+  border-radius:5px;
+  border:1px solid #F09035;
+}
+
+.input-number span {
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+  display: inline-block;
+  background-color: white;
+  height: 100%;
+  width: 40px;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
+  color: #4E4E4E;
+  letter-spacing: -1px;
+}
+.input-number button {
+  display: inline-block;
+  width: 50px;
+  height: 100%;
+  border: none;
+  color: #D80000;
+  cursor:pointer;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: rgba(255,255,255,.2);
+  transition: background-color .2s ease;
+  font-size: 30px;
+}
+
+.input-number button:nth-of-type(1) {
+  padding-right:20px
+}
+
+.input-number button:nth-of-type(2) {
+  padding-left: 60px;
+}
+
+.input-number button:hover {
+  background-color: rgba(255,255,255,.25);
+}`
+
+export const Options__Buy = styled.div`
+padding-top:24px;
+
+display:flex;
+align-itens:center;
+width:100%;
+justify-content:space-between;
+overflow:hidden;
+.addButton{
+  line-height: 40px;
+  width:220px;
+  background-color: #F09035;
+  padding:2px;
+  height:40px;
+  color:white;
+  border:none;
+  border-radius:4px;
+}
+`
+
 
 
 export const ContainerInline = styled.div`

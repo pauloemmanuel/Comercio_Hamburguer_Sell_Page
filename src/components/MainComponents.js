@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Template = styled.div`
 `
-export const PageContainer = styled.div`
+export const PageContainer = styled.section`
 max-width:1280px;
 display:flex;
 align-items:center;
