@@ -17,8 +17,18 @@ Funciona nos seguintes ambientes Web:
 
 ## Funcionalidades Esperadas
 
+Requisitos Funcionais
+
 - Mudança de Endereço <!-- Pronto -->
-- Adição de Item no carrinho
+- Adição de items no carrinho
+- Adição de adicionais nos itens no carrinho
 - Puxar as informações da API
+
+Requisitos Não Funcionais
+
 - Responsividade Desktop
 - Responsividade Web <!-- Pronto -->
+
+Requisitos de Dominio 
+
+- Fidelidade do Layout <!-- Pronto -->
