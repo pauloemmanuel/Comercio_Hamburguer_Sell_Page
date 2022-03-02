@@ -28,6 +28,7 @@ Requisitos Não Funcionais
 
 - Responsividade Desktop
 - Responsividade Web <!-- Pronto -->
+- Não permitir que o usuário coloque menos de 0 produtos ou adicionais
 
 Requisitos de Dominio 
 
