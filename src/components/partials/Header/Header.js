@@ -2,6 +2,7 @@ import {HeaderBox,HeaderBox__Logo,HeaderBox__Container,HeaderBox__SelectAddress,
 import { PageContainer } from '../../MainComponents'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+
 const Header = () => {
   const [carrinho,setCarrinho] = useState(0);
   const [enderecos,setEnderecos] = useState(['R. Antonio Braune, 222','Rua Jorge Amado,821','Avenida Freitas Silvas,981','R. Maria Bernades, 819'])
@@ -41,7 +42,7 @@ const Header = () => {
            {enderecos.map((item,index)=>{
              if(index != 0){
               return(
-                <li onClick={()=>{mudarEnderecos(index)}}>{item}</li>
+                <li key={index} onClick={()=>{mudarEnderecos(index)}}>{item}</li>
               );}
            })}
             

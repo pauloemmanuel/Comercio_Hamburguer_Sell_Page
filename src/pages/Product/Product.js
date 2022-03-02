@@ -1,8 +1,16 @@
 import { PageContainer, Inline } from '../../components/MainComponents'
-import { useState } from 'react';
+import { useState,componentDidMount} from 'react';
+import axios from 'axios';
 import { Options__Divider,Options__Children__Counter__Big, Options__Buy, Options__Children__Counter, Options__Children, Options__Header, HamburgerContainer, HamburgerContainer__Image, Options, ContainerInline, HamburgerContainer__ProductTitle, HamburgerContainer__ProductDescription, HamburgerContainer__ProductPrice, HamburgerContainer__OldPrice } from './ProductStyle'
-const Product = () => {
+const Product = () => { 
 
+    axios({ 
+    method: 'get',
+    url: 'https://6077803e1ed0ae0017d6aea4.mockapi.io/test-frontend/products',
+    responseType: 'stream'
+  })
+    .then((result) => console.log(result.data[0]));
+  
   const [contador, setContador] = useState(0);
 
   const handleNumberMinus = () => {
@@ -16,7 +24,7 @@ const Product = () => {
   const handleNumberPlus = () => {
     setContador(contador + 1);
   }
-
+  
   return (
     <PageContainer>
       <HamburgerContainer>
@@ -109,11 +117,12 @@ const Product = () => {
             <button className='addButton'>Adicionar</button>
           </Options__Buy>
         </Options__Divider>
-
       </Options>
-
+   
     </PageContainer>
+    
   );
+ 
 }
 
 
