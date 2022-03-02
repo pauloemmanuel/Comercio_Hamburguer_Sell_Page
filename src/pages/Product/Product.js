@@ -1,5 +1,6 @@
 import { PageContainer, Inline } from '../../components/MainComponents'
 import { useState,componentDidMount} from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import { Options__Divider,Options__Children__Counter__Big, Options__Buy, Options__Children__Counter, Options__Children, Options__Header, HamburgerContainer, HamburgerContainer__Image, Options, ContainerInline, HamburgerContainer__ProductTitle, HamburgerContainer__ProductDescription, HamburgerContainer__ProductPrice, HamburgerContainer__OldPrice } from './ProductStyle'
 const Product = () => { 
@@ -21,7 +22,7 @@ const Product = () => {
       setContador(contador - 1);
     }
   }
-  const handleNumberPlus = () => {
+  const handleNumberPlus = (props) => {
     setContador(contador + 1);
   }
   
@@ -125,6 +126,11 @@ const Product = () => {
  
 }
 
+const mapStateToProps = (state) => ({
+    cart:state.cart
+})
+const mapDispatchToProps = (dispatch)=>{
+  return{};
+}
 
-
-export default Product;
+export default connect (mapStateToProps,mapDispatchToProps)(Product);

@@ -1,8 +1,8 @@
 const initialState =  {
-  cart:''
+  cart:0
   };
   
-let shopCart = (state = initialState, action) => {
+let cartReducer = (state = initialState, action) => {
   
     if(action.type === 'ADD_CART'){
       return {...state,cart:action.payload.email};
@@ -11,4 +11,4 @@ let shopCart = (state = initialState, action) => {
     return state;
   }
 
-  export default shopCart
+  export default cartReducer

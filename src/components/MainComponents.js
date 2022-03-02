@@ -10,6 +10,9 @@ margin:auto;
 justify-items:space-between;
 position:relative;
 z-index:1;
+@media(max-width:980px){
+flex-flow:column nowrap;
+}
 
 `
 

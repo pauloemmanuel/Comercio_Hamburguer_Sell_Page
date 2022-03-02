@@ -2,9 +2,11 @@ import {HeaderBox,HeaderBox__Logo,HeaderBox__Container,HeaderBox__SelectAddress,
 import { PageContainer } from '../../MainComponents'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { connect } from 'react-redux';
 
-const Header = () => {
-  const [carrinho,setCarrinho] = useState(0);
+const Header = (props) => {
+  const [carrinho,setCarrinho] = useState(props.cart.cart);
+ 
   const [enderecos,setEnderecos] = useState(['R. Antonio Braune, 222','Rua Jorge Amado,821','Avenida Freitas Silvas,981','R. Maria Bernades, 819'])
   const [enderecoAtual,setEnderecoAtual] = useState(enderecos[0]);
   const exibirEnderecos = () => {
@@ -61,7 +63,6 @@ const Header = () => {
             <img src='./img/CarrinhoCompras.svg'></img>
             <p>Carrinho</p>
             <div>
-              
             </div>
           </HeaderBox__ImgPlusText>
         </HeaderBox__Container>
@@ -70,5 +71,9 @@ const Header = () => {
     
   )
 }
+const mapStateToProps = (state) => ({
+  cart:state.cart
+})
 
-export default Header
+
+export default connect (mapStateToProps)(Header);
