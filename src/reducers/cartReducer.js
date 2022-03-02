@@ -3,11 +3,12 @@ const initialState =  {
   };
   
 let cartReducer = (state = initialState, action) => {
-  
-    if(action.type === 'ADD_CART'){
-      return {...state,cart:action.payload.email};
+    console.log(state);
+    if(action.type === 'changeCart'){
+      
+      return {...state,cart:action.payload.cart};
+     
     }
-  
     return state;
   }
 

@@ -5,8 +5,7 @@ import { useState } from 'react';
 import { connect } from 'react-redux';
 
 const Header = (props) => {
-  const [carrinho,setCarrinho] = useState(props.cart.cart);
- 
+  
   const [enderecos,setEnderecos] = useState(['R. Antonio Braune, 222','Rua Jorge Amado,821','Avenida Freitas Silvas,981','R. Maria Bernades, 819'])
   const [enderecoAtual,setEnderecoAtual] = useState(enderecos[0]);
   const exibirEnderecos = () => {
@@ -59,7 +58,7 @@ const Header = (props) => {
             <p>Entrar</p>
           </HeaderBox__ImgPlusText>
           <HeaderBox__ImgPlusText>
-            <Header__Counter>{carrinho}</Header__Counter>
+            <Header__Counter>{props.cart.cart}</Header__Counter>
             <img src='./img/CarrinhoCompras.svg'></img>
             <p>Carrinho</p>
             <div>

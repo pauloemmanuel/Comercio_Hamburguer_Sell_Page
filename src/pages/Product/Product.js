@@ -1,10 +1,12 @@
 import { PageContainer, Inline } from '../../components/MainComponents'
 import { useState,componentDidMount} from 'react';
 import { connect } from 'react-redux';
+import { changeCart } from '../../actions/cartAction';
 import axios from 'axios';
 import { Options__Divider,Options__Children__Counter__Big, Options__Buy, Options__Children__Counter, Options__Children, Options__Header, HamburgerContainer, HamburgerContainer__Image, Options, ContainerInline, HamburgerContainer__ProductTitle, HamburgerContainer__ProductDescription, HamburgerContainer__ProductPrice, HamburgerContainer__OldPrice } from './ProductStyle'
-const Product = () => { 
+const Product = (props) => { 
 
+    let cart = 10;
     axios({ 
     method: 'get',
     url: 'https://6077803e1ed0ae0017d6aea4.mockapi.io/test-frontend/products',
@@ -13,7 +15,7 @@ const Product = () => {
     .then((result) => console.log(result.data[0]));
   
   const [contador, setContador] = useState(0);
-
+  const [contadorHamburger, setContadorHamburguer] = useState(0);
   const handleNumberMinus = () => {
     if (contador <= 0) {
       setContador(0);
@@ -110,12 +112,18 @@ const Product = () => {
           <Options__Buy>
             <Options__Children__Counter__Big>
               <div className="input-number">
-                <button type="button" onClick={handleNumberMinus} >&minus;</button>
-                <span>{contador}</span>
-                <button type="button" onClick={handleNumberPlus}>&#43;</button>
+                <button type="button" onClick={()=>{
+                  if(contadorHamburger == 0){
+                    window.alert('Não pode ser abaixo de 0 items')
+                  }else{
+                    setContadorHamburguer(contadorHamburger - 1)}
+                  }
+                  } >&minus;</button>
+                <span>{contadorHamburger}</span>
+                <button type="button" onClick={()=>{setContadorHamburguer(contadorHamburger + 1)}}>&#43;</button>
               </div>
             </Options__Children__Counter__Big>
-            <button className='addButton'>Adicionar</button>
+            <button className='addButton' onClick={()=>{console.log(props.changeCart(props.cart.cart+contadorHamburger))}}>Adicionar</button>
           </Options__Buy>
         </Options__Divider>
       </Options>
@@ -129,8 +137,8 @@ const Product = () => {
 const mapStateToProps = (state) => ({
     cart:state.cart
 })
-const mapDispatchToProps = (dispatch)=>{
-  return{};
+const mapActionsToProps =  {
+    changeCart
 }
 
-export default connect (mapStateToProps,mapDispatchToProps)(Product);
+export default connect (mapStateToProps,mapActionsToProps)(Product);
