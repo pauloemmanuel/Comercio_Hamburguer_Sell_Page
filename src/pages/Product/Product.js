@@ -1,18 +1,28 @@
 import { PageContainer, Inline } from '../../components/MainComponents'
-import { useState,componentDidMount} from 'react';
+import { useState,useEffect} from 'react';
 import { connect } from 'react-redux';
 import { changeCart } from '../../actions/cartAction';
 import axios from 'axios';
 import { Options__Divider,Options__Children__Counter__Big, Options__Buy, Options__Children__Counter, Options__Children, Options__Header, HamburgerContainer, HamburgerContainer__Image, Options, ContainerInline, HamburgerContainer__ProductTitle, HamburgerContainer__ProductDescription, HamburgerContainer__ProductPrice, HamburgerContainer__OldPrice } from './ProductStyle'
 const Product = (props) => { 
-
-    let cart = 10;
-    axios({ 
-    method: 'get',
-    url: 'https://6077803e1ed0ae0017d6aea4.mockapi.io/test-frontend/products',
-    responseType: 'stream'
-  })
-    .then((result) => console.log(result.data[0]));
+    const aparecerModal = ()=>{
+      document.querySelector('#displayNone1').classList.remove('displaynone');
+      document.querySelector('#displayNone2').classList.remove('displaynone');
+    setTimeout(()=>{
+      document.querySelector('#displayNone1').classList.toggle('displaynone');
+      document.querySelector('#displayNone2').classList.toggle('displaynone');
+    },3000)
+    }
+    //Faz em todo ciclo de vida
+    useEffect(()=>{
+      axios({ 
+        method: 'get',
+        url: 'https://6077803e1ed0ae0017d6aea4.mockapi.io/test-frontend/products',
+        responseType: 'stream'
+      })
+        .then((result) => console.log(result.data[0]));
+    })
+   
   
   const [contador, setContador] = useState(0);
   const [contadorHamburger, setContadorHamburguer] = useState(0);
@@ -123,7 +133,14 @@ const Product = (props) => {
                 <button type="button" onClick={()=>{setContadorHamburguer(contadorHamburger + 1)}}>&#43;</button>
               </div>
             </Options__Children__Counter__Big>
-            <button className='addButton' onClick={()=>{console.log(props.changeCart(props.cart.cart+contadorHamburger))}}>Adicionar</button>
+            <button className='addButton' onClick={()=>{
+              if(contadorHamburger == 0){
+                    window.alert('Primeiro Selecione a quantidade!')
+              }else{
+              props.changeCart(props.cart.cart+contadorHamburger);
+              aparecerModal()
+             }
+             }}>Adicionar</button>
           </Options__Buy>
         </Options__Divider>
       </Options>

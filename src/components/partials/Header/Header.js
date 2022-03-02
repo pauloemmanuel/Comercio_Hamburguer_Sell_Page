@@ -1,11 +1,21 @@
-import {HeaderBox,HeaderBox__Logo,HeaderBox__Container,HeaderBox__SelectAddress,HeaderBox__SearchInput,HeaderBox__ImgPlusText,Header__Counter} from './HeaderStyle'
+import {HeaderBox__Modal,HeaderBox__Modal__Arrow,HeaderBox,HeaderBox__Logo,HeaderBox__Container,HeaderBox__SelectAddress,HeaderBox__SearchInput,HeaderBox__ImgPlusText,Header__Counter} from './HeaderStyle'
 import { PageContainer } from '../../MainComponents'
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { connect } from 'react-redux';
 
 const Header = (props) => {
   
+
+
+  const [cart,setCart] = useState(props.cart.cart);
+
+
+  useEffect(()=>{
+      setCart(props.cart.cart);
+     
+  },[props.cart.cart]);
+
   const [enderecos,setEnderecos] = useState(['R. Antonio Braune, 222','Rua Jorge Amado,821','Avenida Freitas Silvas,981','R. Maria Bernades, 819'])
   const [enderecoAtual,setEnderecoAtual] = useState(enderecos[0]);
   const exibirEnderecos = () => {
@@ -23,7 +33,7 @@ const Header = (props) => {
     novosEnderecos[index] = respiro;
     setEnderecos(novosEnderecos);
     setEnderecoAtual(novosEnderecos[0])
-    console.log(enderecos)
+  
   }
 
   return(
@@ -58,11 +68,29 @@ const Header = (props) => {
             <p>Entrar</p>
           </HeaderBox__ImgPlusText>
           <HeaderBox__ImgPlusText>
-            <Header__Counter>{props.cart.cart}</Header__Counter>
+            <Header__Counter>{cart}</Header__Counter>
             <img src='./img/CarrinhoCompras.svg'></img>
             <p>Carrinho</p>
             <div>
             </div>
+            <HeaderBox__Modal__Arrow  className='displaynone' id='displayNone1'/>
+            <HeaderBox__Modal className='displaynone' id='displayNone2'>
+              <div className='orangeBar'>
+                Adicionado Com Sucesso
+              </div>
+             
+              <div className='modal__Content'>
+               <div className='modal__Title'>Oferta Cheddar Bacon</div> 
+               <br/>
+               Ingredientes:
+               <ul>
+                  <li>1 Carne 250gr</li>
+                  <li>2 Queijo Cheddar</li>
+                  <li>1 Bacon</li>
+                  <li>Molho Especial</li>
+               </ul>
+              </div>
+            </HeaderBox__Modal>
           </HeaderBox__ImgPlusText>
         </HeaderBox__Container>
       </PageContainer>

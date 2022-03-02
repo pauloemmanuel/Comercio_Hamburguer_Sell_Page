@@ -3,9 +3,7 @@ const initialState =  {
   };
   
 let cartReducer = (state = initialState, action) => {
-    console.log(state);
-    if(action.type === 'changeCart'){
-      
+    if(action.type === 'changeCart'){      
       return {...state,cart:action.payload.cart};
      
     }

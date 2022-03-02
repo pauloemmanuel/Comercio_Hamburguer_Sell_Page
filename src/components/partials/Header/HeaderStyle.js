@@ -124,6 +124,9 @@ z-index:2;
 font-size:16px;
 align-itens:center;
 
+.displaynone{
+  display:none;
+}
 img{
   margin-right:8px;
   max-width:40px
@@ -151,3 +154,62 @@ export const Header__Counter = styled.div`
   
 `
 
+export const HeaderBox__Modal__Arrow = styled.div`
+  display:block;
+position: absolute;
+margin-top:43px;
+margin-left:13px;
+z-index:2;
+padding:4px;
+width:18px;
+height:18px;
+background-color:#F09035;
+transform: rotate(45deg);
+
+`
+export const HeaderBox__Modal = styled.div`
+ display:block;
+position: absolute;
+margin-top:51px;
+margin-left:calc(-208px + 116px);
+cursor:default;
+width:220px;
+height:fit-content;
+border-radius: 4px 4px 0px 0px;
+filter: drop-shadow(0px -1px 4px rgba(0, 0, 0, 0.25));
+
+.orangeBar{
+ 
+  background-color:#F09035;
+  width:100%;
+  height:fit-content;
+  color:white;
+  margin-top:-2px;
+  padding:5px;
+  border-radius: 4px 4px 0px 0px;
+  padding-top:9px;
+  padding-bottom:5px;
+  font-size:18px;
+  font-weight:600;
+}
+.modal__Content{
+  width: 100%;
+  background-color:#F8F8F8;
+  height:120px;
+  padding:8px 11px;
+  color:#4E4E4E;
+  font-size:12px;
+}
+.modal__Title{
+ color:#BC2E31;
+ font-size:16px;
+ font-weight: bold;
+ line-height: 100%;
+ font-style: normal;
+ margin-bottom:-8px;
+}
+ul{
+ padding:20px;
+ margin-top:-12px;
+}
+`
