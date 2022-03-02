@@ -3,11 +3,19 @@ import styled from 'styled-components'
 export const HamburgerContainer = styled.main`
 display:flex;
 flex-flow:column nowrap;
-padding:30px;
 position:relative;
 z-index:1;
+
+padding:22px;
 padding-top:48px;
 width:50%;
+@media(max-width:980px){
+  max-width:100%;
+  width:100vw;
+  margin:auto;
+
+
+}
 `
 
 export const HamburgerContainer__Image = styled.div`
@@ -16,25 +24,50 @@ position:relative;
 z-index:1;
 @media(max-width:1200px){
   margin-left:-68px;
+  @media(max-width:980px){
+   img{
+    width:auto;
+    height:100%;
+   } 
+   display:flex;
+   justify-content:center;
+   width: 90%;
+   margin:auto;
+   height:130px;
 }
+}
+
 `
 export const HamburgerContainer__ProductTitle = styled.div`
 font-size:28px;
 font-weight:600;
 padding-top:24px;
 color:#4E4E4E;
+padding-left:8px;
+@media(max-width:980px){
+  font-size:18px;
+}
 `
 export const HamburgerContainer__ProductDescription = styled.div`
 font-size:20px;
 font-weight:400;
 padding-top:24px;
+padding-left:8px;
 color:#4E4E4E;
+@media(max-width:980px){
+  font-size:16px;
+}
 `
 export const HamburgerContainer__ProductPrice = styled.div`
 font-size:32px;
 font-weight:400;
 padding-top:24px;
+padding-left:8px;
 color:#DC6E05;
+@media(max-width:980px){
+  font-size:14px;
+  padding-top:15px;
+}
 `
 export const HamburgerContainer__OldPrice = styled.div`
 font-size:32px;
@@ -43,7 +76,10 @@ padding-top:24px;
 color:#4E4E4E;
 margin-left:20px;
 text-decoration: line-through;
-                         
+@media(max-width:980px){
+  font-size:14px;
+  padding-top:15px;
+}
 `
 
 export const Options = styled.div`
@@ -61,21 +97,36 @@ height:50rem;
 border-radius: 8px;
 max-height:39rem;
 padding-bottom:0px;
+@media(max-width:980px){
+  height:fit-content;
+  max-height:9999px;
+  border:none;
+  max-width:100vw;
+  width:100%;
+  margin:auto;
+  padding:20px;
+  padding-top:5px;
+
+}
 `
 export const Options__Divider = styled.div`
 display:flex;
 flex-direction:column;
 overflow:auto;
 max-height:31.5rem;
+
+@media(max-width:980px){
+  height:100%;
+  max-height:100%;
+}
 `
 
 export const Options__Header = styled.div`
 background-color: rgba(253, 215, 14, 0.2);
 padding-bottom:10px;
 padding-left:20px;
+padding-top:12px;
 margin-bottom:10px;
-
-
 p{
   font-size:14px; 
   color:#4E4E4E;
@@ -100,6 +151,7 @@ border-bottom:1px solid #F09035;
 
 &:last-child{
   border-bottom:0px solid #F09035;
+  margin-top:-10px;
 }
 .orangeText{
   color:#F09035;
@@ -122,6 +174,7 @@ justify-content:space-between;
     display:inline;
     cursor:pointer;
     margin-bottom:-20px;
+ 
   }
   input {
     cursor:pointer;
@@ -135,6 +188,12 @@ justify-content:space-between;
     border: 1px solid orange;
     transition: 0.2s all linear;
     position: relative;
+    -webkit-touch-callout: none;
+   -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
   }
 
   input:checked {
@@ -212,6 +271,7 @@ export const Options__Children__Counter__Big = styled.div`
   position:relative;
   display:block;
   width: 140px;
+
 .input-number {
   position: relative;
   width: 100%;
@@ -220,7 +280,6 @@ export const Options__Children__Counter__Big = styled.div`
   height: 40px;
   background-color: white;
   overflow: hidden;
-
   border-radius:5px;
   border:1px solid #F09035;
 }
@@ -274,6 +333,7 @@ align-itens:center;
 width:100%;
 justify-content:space-between;
 overflow:hidden;
+
 .addButton{
   line-height: 40px;
   width:220px;
@@ -281,8 +341,21 @@ overflow:hidden;
   padding:2px;
   height:40px;
   color:white;
+  cursor:pointer;
   border:none;
   border-radius:4px;
+  &:hover{
+    background-color: #FF9955;
+  }
+  @media(max-width:980px){
+    width:200px;
+  }
+  @media(max-width:375px){
+    width:175px;
+  }
+  @media(max-width:320px){
+    width:120px;
+  }
 }
 `
 

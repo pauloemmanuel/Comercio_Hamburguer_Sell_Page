@@ -19,7 +19,7 @@ overflow:hidden;
 overflow-x:visible;
 overflow-y:visible;
 
-@media(max-width: 768px){
+@media(max-width: 980px){
   display:none;
 }
 `
@@ -122,9 +122,14 @@ cursor:pointer;
 color:#ED3237;
 z-index:2;
 font-size:16px;
+align-itens:center;
+
 img{
   margin-right:8px;
   max-width:40px
+}
+p{
+  margin:auto;
 }
 
 `
@@ -132,8 +137,8 @@ export const Header__Counter = styled.div`
   position:absolute;
   background-color:#F09035;
   width:1rem;
-  margin-left:1.4rem;
-  margin-top:0.2rem;
+  margin-left:1.8rem;
+  margin-top:-0.1rem;
   z-index:1;
   padding-top:3px;
   padding-bottom:3px;
