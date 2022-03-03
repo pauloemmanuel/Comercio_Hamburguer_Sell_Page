@@ -1,7 +1,8 @@
 import {Children__Counter} from './CounterStyle';
-
+import { useState } from 'react';
 
 const Counter = ()=>{
+  const [contador, setContador] = useState(0);
   const handleNumberMinus = () => {
     if (contador <= 0) {
       setContador(0);

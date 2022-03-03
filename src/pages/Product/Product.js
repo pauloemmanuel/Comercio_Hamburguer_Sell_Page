@@ -1,5 +1,5 @@
 import { PageContainer } from '../../components/MainComponents'
-import { useState,useMemo, useEffect} from 'react';
+import { useState, useEffect} from 'react';
 import { connect} from 'react-redux';
 import { changeCart } from '../../actions/cartAction';
 import axios from 'axios';
@@ -9,6 +9,8 @@ import { Options__Divider,Options__Children__Counter__Big, Options__Buy, Options
 
     
     const Product = (props) => { 
+      
+  
     const aparecerModal = ()=>{
       document.querySelector('#displayNone1').classList.remove('displaynone');
       document.querySelector('#displayNone2').classList.remove('displaynone');
@@ -21,20 +23,25 @@ import { Options__Divider,Options__Children__Counter__Big, Options__Buy, Options
     //Faz o ciclo de vida
     useEffect(()=>{
       requisicao_hamburger();
+    
     },[])
   
     const [hamburguer, setHamburguer] = useState([]);
+    const [adicionais, setAdicionais] = useState([]);
     const requisicao_hamburger = async () => {
       try {
         axios.get('https://6077803e1ed0ae0017d6aea4.mockapi.io/test-frontend/products')
-        .then((resultado)=>setHamburguer(resultado.data[0]));
+        .then((resultado)=>{setHamburguer(resultado.data[0])
+        return resultado;
+        }).then(resultado => setAdicionais(resultado.data[0].ingredients[0].itens));
       } catch (error) {
         console.error(error);
       }
     }
-  const [contador, setContador] = useState(0);
+  
   const [contadorHamburger, setContadorHamburguer] = useState(0);
   
+ 
   console.log(hamburguer) 
   return (
     <PageContainer>
@@ -63,46 +70,17 @@ import { Options__Divider,Options__Children__Counter__Big, Options__Buy, Options
             <p>Adicionar Ingredientes</p>
             <span>Até 8 ingredientes</span>
           </Options__Header>
-          <Options__Children>
-            <span>Queijo Cheddar</span>
-            <Options__Children__Counter>
-              
-            </Options__Children__Counter>
-            <span className='orangeText'>+ R$4,99</span>
-          </Options__Children>
-          <Options__Children>
-            <span>Queijo Cheddar</span>
-            <Options__Children__Counter>
-              <div className="input-number">
-                <button type="button" onClick={handleNumberMinus} >&minus;</button>
-                <span>{contador}</span>
-                <button type="button" onClick={handleNumberPlus}>&#43;</button>
-              </div>
-            </Options__Children__Counter>
-            <span className='orangeText'>+ R$4,99</span>
-          </Options__Children>
-          <Options__Children>
-            <span>Queijo Cheddar</span>
-            <Options__Children__Counter>
-              <div className="input-number">
-                <button type="button" onClick={handleNumberMinus} >&minus;</button>
-                <span>{contador}</span>
-                <button type="button" onClick={handleNumberPlus}>&#43;</button>
-              </div>
-            </Options__Children__Counter>
-            <span className='orangeText'>+ R$4,99</span>
-          </Options__Children>
-          <Options__Children>
-            <span>Queijo Cheddar</span>
-            <Options__Children__Counter>
-              <div className="input-number">
-                <button type="button" onClick={handleNumberMinus} >&minus;</button>
-                <span>{contador}</span>
-                <button type="button" onClick={handleNumberPlus}>&#43;</button>
-              </div>
-            </Options__Children__Counter>
-            <span className='orangeText'>+ R$4,99</span>
-          </Options__Children>
+          {
+            adicionais.map((item)=>{
+              return(
+                <Options__Children>
+            <span>{item.nm_item}</span>
+          <Options__Children__Counter/>
+            <span className='orangeText'>+ R${item.vl_item.toFixed(2)}</span>
+          </Options__Children>                
+              )
+            })
+          }
           <Options__Header>
             <p>Precisa de Talher?</p>
           </Options__Header>
