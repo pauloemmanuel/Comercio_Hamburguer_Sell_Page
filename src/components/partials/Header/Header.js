@@ -6,6 +6,10 @@ import { connect } from 'react-redux';
 
 const Header = (props) => {
   
+  const alternarModal = ()=>{
+    document.querySelector('#displayNone1').classList.toggle('displaynone');
+    document.querySelector('#displayNone2').classList.toggle('displaynone');
+  }
 
 
   const [cart,setCart] = useState(props.cart.cart);
@@ -51,7 +55,7 @@ const Header = (props) => {
            <img src='./img/SetaParaBaixoLaranja.svg'></img>
            <ul id='enderecos'>
            {enderecos.map((item,index)=>{
-             if(index != 0){
+             if(index !== 0){
               return(
                 <li key={index} onClick={()=>{mudarEnderecos(index)}}>{item}</li>
               );}
@@ -68,11 +72,12 @@ const Header = (props) => {
             <p>Entrar</p>
           </HeaderBox__ImgPlusText>
           <HeaderBox__ImgPlusText>
-            <Header__Counter>{cart}</Header__Counter>
+            <Header__Counter >{cart}</Header__Counter>
+            <label style={{display:'flex'}} onClick={alternarModal}>
             <img src='./img/CarrinhoCompras.svg'></img>
             <p>Carrinho</p>
-            <div>
-            </div>
+           
+            </label>
             <HeaderBox__Modal__Arrow  className='displaynone' id='displayNone1'/>
             <HeaderBox__Modal className='displaynone' id='displayNone2'>
               <div className='orangeBar'>
