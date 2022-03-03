@@ -73,7 +73,7 @@ import { Options__Divider,Options__Children__Counter__Big, Options__Buy, Options
           {
             adicionais.map((item)=>{
               return(
-                <Options__Children>
+                <Options__Children key={item.id}>
             <span>{item.nm_item}</span>
           <Options__Children__Counter/>
             <span className='orangeText'>+ R${item.vl_item.toFixed(2)}</span>

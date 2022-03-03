@@ -52,7 +52,7 @@ padding: 4px 8px;
 position:relative;
 overflow:visible;
 justify-content:space-between;
-z-index:10;
+z-index:11;
 span .orangeText{
   color:#D80000;
   font-weight:500;
@@ -68,17 +68,20 @@ ul{
   overflow:visible;
   position:absolute;
   top:30px;
+  margin-top:11px;
   left:0;
   width:100%;
   padding-top:8px;
   background-color:white;
   z-index:10;
-  border-radius:0px 10px 10px;
+  border-radius:0px 0px 10px 10px;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+
 }
 li{
   cursor:pointer;
-  margin-left:-31px;
+  margin-left:8px;
+
   padding:8px 0px;
   position:relative;
   z-index:10;
