@@ -73,7 +73,7 @@ const Header = (props) => {
           </HeaderBox__ImgPlusText>
           <HeaderBox__ImgPlusText>
             <Header__Counter >{cart}</Header__Counter>
-            <label style={{display:'flex'}} onClick={alternarModal}>
+            <label style={{display:'flex',cursor:'pointer'}} onClick={alternarModal}>
             <img src='./img/CarrinhoCompras.svg'></img>
             <p>Carrinho</p>
            
